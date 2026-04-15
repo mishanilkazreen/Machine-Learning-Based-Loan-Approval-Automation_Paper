@@ -1,0 +1,69 @@
+### Statistical Rigor Analysis
+
+=== Variance Analysis Results ===
+        Model     Accuracy    Precision       Recall           F1          AUC
+     Tuned RF 0.85 Â± 0.03 0.80 Â± 0.04 0.93 Â± 0.01 0.86 Â± 0.02 0.91 Â± 0.04
+Tuned XGBoost 0.85 Â± 0.03 0.79 Â± 0.04 0.96 Â± 0.01 0.86 Â± 0.02 0.90 Â± 0.04
+     Stacking 0.85 Â± 0.03 0.81 Â± 0.04 0.92 Â± 0.02 0.86 Â± 0.03 0.90 Â± 0.04
+       Voting 0.84 Â± 0.03 0.79 Â± 0.04 0.94 Â± 0.02 0.86 Â± 0.02 0.90 Â± 0.04
+
+
+### Variance Analysis Interpretation
+
+
+=== Statistical Significance Testing Results ===
+                               Tuned RF             Tuned XGBoost  \
+Tuned RF                            â€”  t: p=0.5549, W: p=0.4375   
+Tuned XGBoost  t: p=0.5549, W: p=0.4375                       â€”   
+Stacking       t: p=0.6071, W: p=0.8125  t: p=0.8754, W: p=0.8125   
+Voting         t: p=0.8484, W: p=0.8125  t: p=0.2664, W: p=0.3125   
+
+                               Stacking                    Voting  
+Tuned RF       t: p=0.6071, W: p=0.8125  t: p=0.8484, W: p=0.8125  
+Tuned XGBoost  t: p=0.8754, W: p=0.8125  t: p=0.2664, W: p=0.3125  
+Stacking                            â€”  t: p=0.4744, W: p=0.6250  
+Voting         t: p=0.4744, W: p=0.6250                       â€”  
+
+
+###  Ablation Study
+
+
+	Condition	Accuracy	Precision	Recall	F1	AUC	Delta_F1
+0	Baseline (Full Pipeline)	0.85 Â± 0.03	0.80 Â± 0.04	0.93 Â± 0.01	0.86 Â± 0.02	0.91 Â± 0.04	â€”
+1	No SMOTE	0.80 Â± 0.04	0.81 Â± 0.03	0.94 Â± 0.03	0.87 Â± 0.03	0.76 Â± 0.07	+0.01
+2	No Hyperparameter Tuning	0.85 Â± 0.03	0.81 Â± 0.04	0.91 Â± 0.03	0.86 Â± 0.03	0.91 Â± 0.04	-0.00
+3	No Feature Selection	0.86 Â± 0.02	0.80 Â± 0.03	0.94 Â± 0.02	0.87 Â± 0.02	0.90 Â± 0.04	+0.01
+
+
+### Classification Report
+
+
+=== Tuned Random Forest ===
+              precision    recall  f1-score   support
+
+           0       0.86      0.44      0.58        43
+           1       0.76      0.96      0.85        80
+
+    accuracy                           0.78       123
+   macro avg       0.81      0.70      0.72       123
+weighted avg       0.80      0.78      0.76       123
+
+=== Tuned XGBoost ===
+              precision    recall  f1-score   support
+
+           0       0.95      0.42      0.58        43
+           1       0.76      0.99      0.86        80
+
+    accuracy                           0.79       123
+   macro avg       0.85      0.70      0.72       123
+weighted avg       0.83      0.79      0.76       123
+
+=== Stacking Ensemble ===
+              precision    recall  f1-score   support
+
+           0       0.90      0.44      0.59        43
+           1       0.76      0.97      0.86        80
+...
+    accuracy                           0.79       123
+   macro avg       0.83      0.71      0.73       123
+weighted avg       0.81      0.79      0.77       123
