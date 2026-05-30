@@ -31,7 +31,18 @@ Then open `src/hellen_paper.ipynb` in Jupyter and run all cells.
 
 ## Citation
 
-*This paper is currently under review. Citation details will be updated upon publication.*
- 
-If you use this work, please contact the corresponding author at `mani.ghahremani@port.ac.uk` for citation details until the paper is published.
-
+If you use this for research, please cite. Here is an example BibTeX entry:
+```bibtex
+@article{ghahremani2026loanaproval,
+  author    = {Ghahremani, Mani and Otieno, Hellen Amimo and Kazreen, Mishanil and Shiaeles, Stavros},
+  title     = {Machine Learning-Based Loan Approval Automation: Enhancing Efficiency, Accuracy and Fairness in Credit Decision-Making},
+  journal   = {Expert Systems},
+  volume    = {43},
+  number    = {7},
+  pages     = {e70307},
+  year      = {2026},
+  doi       = {10.1111/exsy.70307},
+  url       = {https://onlinelibrary.wiley.com/doi/abs/10.1111/exsy.70307},
+  publisher = {Wiley},
+}
+```
